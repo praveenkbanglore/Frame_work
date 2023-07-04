@@ -1,0 +1,32 @@
+package DDT;
+
+import java.io.FileInputStream;
+import java.io.IOException;
+
+import org.apache.poi.EncryptedDocumentException;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.ss.usermodel.WorkbookFactory;
+
+public class getsringvalue {
+		public static void main(String[] args) throws EncryptedDocumentException, IOException {
+			
+			//step1
+			FileInputStream fis = new FileInputStream("./Excel/DDT.xlsx");
+			//step2
+			Workbook book = WorkbookFactory.create(fis);
+			//step3
+			Sheet sh = book.getSheet("Sheet1");
+			//step4
+			Row r = sh.getRow(0);
+			//step5
+			Cell c = r.getCell(0);
+			//step6
+			double value = c.getNumericCellValue();
+			System.out.println(value);
+
+	}
+
+}
